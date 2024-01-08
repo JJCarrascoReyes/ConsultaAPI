@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Consulta Valores</h1>
+
+    <form class="formulario sombra"  onsubmit="return validarFormulario(event)">
+        <fieldset>
+                <legend>Complete los siguientes datos para hacer su busqueda</legend>
+            <div class="contenedor">
+                    <div class="formulario__campo">
+                    <label for="tipoIndicador">Tipo indicador</label>
+                        <select class="formulario__campo" id="tipoIndicador" name="tipoIndicador">
+                            <option value="uf">UF</option>
+                            <option value="dolar">Dólar</option>
+                            <option value="euro">Euro</option>
+                            <option value="utm">UTM</option>
+                        </select>
+                    </div>
+                    <div class=" formulario__campo radio-group">
+                        <label for="tipoOperacion" >Tipo de Operacion:</label>
+                        <label>
+                            <input type="radio" name="tipoOperacion" id="promedioMes" value="promedioMes" onchange="manejarCambioTipoOperacion()">Promedio de cada mes.
+                        </label>
+                        <label>
+                            <input type="radio" name="tipoOperacion" id="varacionActual" value="varacionActual" onchange="manejarCambioTipoOperacion()">Variacion Actual.
+                        </label>
+                        <label>
+                            <input type="radio" name="tipoOperacion" id="promedioModa" value="promedioModa" onchange="manejarCambioTipoOperacion()"> Promedio y Moda
+                        </label>
+                    </div>
+
+                    
+                    <div class="formulario__campo formulario__campo--direccion radio-group">
+                        <label for="TipoBusqueda">Tipo Busqueda</label>
+                        <label>
+                            <input type="radio" id="fecha" name="tipoBusqueda" value="fecha" onclick="habilitarFecha()"> Fecha Completa
+                        </label>
+                        <label>
+                            <input type="radio" id="ano" name="tipoBusqueda" value="ano" onclick="habilitarAno()"> Año
+                        </label>
+                    </div>
+
+                    <div class="formulario__campo">
+                        <label for="fechaCompleta">Fecha Completa (dd-mm-yyyy):</label>
+                        <input class="input-text" type="text" id="fechaCompleta" name="fechaCompleta" placeholder="dd-mm-yyyy" disabled>
+                    </div>
+    
+                    <div class="formulario__campo">
+                        <label for="fechaAno">Año (yyyy):</label>
+                        <input class="input-text" type="text" id="fechaAno" name="fechaAno" placeholder="yyyy" disabled>
+                    </div>
+    
+                    <div class="formulario__campo">
+                        <label for="fechaSelect">Año</label>
+                        <select class="formulario__campo" id="fechaSelect" name="fechaSelect"></select>
+                    </div>
+                    
+                    
+                    <div class="formulario__campo">
+                        <label for="fechaMes">Mes</label>
+                        <select class="formulario__campo" name="fechaMes" id="fechaMes">
+                            <option value="01">Enero</option>
+                            <option value="02">Febrero</option>
+                            <option value="03">Marzo</option>
+                            <option value="04">Abril</option>
+                            <option value="05">Mayo</option>
+                            <option value="06">Junio</option>
+                            <option value="07">Julio</option>
+                            <option value="08">Agosto</option>
+                            <option value="09">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                    </div>
+                    <div class="formulario__campo">
+                        <button class="formulario__submit" type="submit">Consultar</button>
+                    </div>
+
+                
+            </div>
+        </fieldset>
+        <div id="errores" class="formulario__error"></div>
+    </form>
+<div  id="resultados"></div>
+
+</main>
+<script src="/js/js.js"></script>   
+</body>
+</html>
