@@ -13,7 +13,7 @@
     <main class="container">
         <h1>Consulta Valores</h1>
 
-    <form class="formulario sombra"  onsubmit="return validarFormulario(event)">
+    <form class="formulario sombra" action="/consultar-api" method="GET" onsubmit=" return validarYEnviarFormulario()">
         <fieldset>
                 <legend>Complete los siguientes datos para hacer su busqueda</legend>
             <div class="contenedor">
@@ -92,9 +92,10 @@
         </fieldset>
         <div id="errores" class="formulario__error"></div>
     </form>
-<div  id="resultados"></div>
-
+    <div>
 </main>
+
+
 <script src="/js/js.js"></script>   
 </body>
 </html>
